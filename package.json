@@ -1,0 +1,24 @@
+{
+  "name": "BattleSnakes",
+	"description": "Realtime Snake game built with NowJS",
+	"author": "Derek Anderson <derek@mediaupstream.com>",
+	"user": "mediaupstream",
+	
+	"version": "1.0.0",
+	
+	"domain": "battlesnakes.node",
+	"scripts": {
+		"start": "server.js"
+	},
+	"repository": {
+		"type": "local",
+		"directory": "/Library/www/sandbox/nodejs/battleSnakes"
+	},
+	
+  "dependencies": {
+		"connect": ">= 1.7.1",
+		"quip": ">= 0.0.2",
+		"now": ">= 0.7.5",
+		"eyes": ">= 0.1.6"
+	}
+}

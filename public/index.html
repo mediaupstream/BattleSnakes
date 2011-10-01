@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>BattleSnakes - NowJS Realtime Game</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<script src="/nowjs/now.js"></script>
+	<script src="js/paper.js"></script>
+	<script src="js/plugins.js"></script>
+	
+	<script> var battleSnake = {}; </script>
+	
+	<script src="js/Sound.js"></script>
+	<script src="js/Snake.js"></script>
+	<script src="js/Powerups.js"></script>
+	<script src="js/Game.js"></script>
+	
+	<script src="js/battleSnake.js"></script>
+	<script>
+		paper.install(window); // make `paper` a global
+
+		$(function(){
+			// setup the canvas / paperjs
+			paper.setup('snakegame');
+			paper.view.setViewSize(700, 520);
+			// initialize the Sound methods
+			battleSnake.initSound();
+			// make sure we have access to the 'now' variable
+			now.ready(function(){
+				battleSnake.init();
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	
+	<div id="ctrl">
+		<div id="blue">
+			<span class="name">Player 1</span>
+			<span class="score">1000</span>
+		</div>
+		
+		<h3 id="timer">0:00</h3>
+		
+		<div id="red">
+			<span class="name">Player 2</span>
+			<span class="score">1000</span>
+		</div>
+	</div>
+	
+	<div id="snakeskin">
+		
+		<div id="choosePlayer">
+			<p>Choose Your Snake</p>
+			<div id="chooseBlue"><a href="#" class="btn">Blue Snake</a></div>
+			<div id="chooseRed"><a href="#" class="btn">Red Snake</a></div>
+		</div>
+		
+		
+		<div id="gameOver">
+			<h2>Game Over!</h2>
+			<p class="gameOverMsg msg">Player1 beat Player2. I Lol'd</p>
+			<br />
+			<a href="#" id="rematch" class="btn">REMATCH</a>
+			<a href="#" id="quitMatch" class="btn">Leave Battle</a>
+			
+			<p class="rematchMsg msg">Your Opponent wants a Rematch<br><br><a href="#" id="acceptRematch">Accept</a> or <a href="#" id="declineRematch">Decline</a></p>
+		</div>
+		
+		
+		<div id="startScreen">
+			<img id="logo" src="img/logo.png">
+			<div id="startOptions">
+				
+				<a href="#" id="quickPlay" class="btn">Quick Play</a>
+				<p id="play-msg" class="msg">Finding an opponent...</p>
+				
+				<a href="#" id="challengeFriend" class="btn">Challenge a Friend</a>
+				<p id="challenge-msg" class="msg"></p>
+				
+				<a href="#" id="tutorial" class="btn">How to Play?</a>
+				
+			</div>
+		</div>
+		
+		<canvas id="snakegame" width="700" height="520"></canvas>
+	</div>
+	
+	<div id="extras">
+		<a href="#" id="snakesOnline"></a>
+		<a href="#" id="musicToggle" class="btn">sound: on</a>
+	</div>
+	
+	<div id="footer">
+		<p>Created by <a href="http://twiter.com/mediaupstream">Derek Anderson</a>. Logo by <a href="http://trevorburks.com">Trevor Burks</a>. 
+		 &copy; 2011 <a href="http://mediaupstream.com">Media Upstream</a>.</p>
+		
+		<p class="buildTools">Made by hand with <a href="http://nodejs.org">NodeJS</a> / <a href="http://nowjs.org">NowJS</a>, <a href="http://paperjs.org">PaperJs</a>, <a href="http://lesscss.org">LESS</a>, and <a href="http://macromates.com">TextMate</a>
+			<br><br>
+			<a href="http://github.com/mediaupstream/">View Source on GitHub</a>
+		</p>
+	</div>
+	
+	<div style="visibility:hidden;">
+		<img src="/img/icons/deadly.png" id="icon-deadly">
+		<img src="/img/icons/switch.png" id="icon-switch">
+		<img src="/img/icons/heart.png" id="icon-heart">
+		<img src="/img/icons/zap.png" id="icon-zap">
+		<img src="/img/icons/shield.png" id="icon-shield">
+		<img src="/img/icons/ghost.png" id="icon-ghost">
+	</div>
+	
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-15679084-1");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+	
+</body>
+</html>
